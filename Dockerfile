@@ -1,3 +1,5 @@
 FROM nginx:latest
 
-COPY nginx.conf /etc/nginx
+RUN rm -rf /etc/nginx/conf.d/*
+
+# RUN wget https://dl.eff.org/certbot-auto
