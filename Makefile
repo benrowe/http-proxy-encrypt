@@ -30,5 +30,10 @@ docker-build:
 	docker build -t benrowe/http-proxy-encrypt:latest .
 
 ## Run the service through docker
-docker-run: docker-build
-	docker run --rm -it -p 443:443 -p 80:80 -v ${PWD}/nginx.conf:/etc/nginx/conf.d/default.conf --name http-proxy benrowe/http-proxy-encrypt:latest
+docker-run: 
+	docker run --rm -it \
+	-p 443:443 -p 80:80 \
+	-v ${PWD}/nginx.conf:/etc/nginx/conf.d/default.conf \
+	--env LETSENCRYPT_FIRST_TIME=true \
+	--name http-proxy \
+	benrowe/http-proxy-encrypt:latest
