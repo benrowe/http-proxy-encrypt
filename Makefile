@@ -33,6 +33,6 @@ docker-build:
 docker-run: 
 	docker run --rm -it \
 	-p 443:443 -p 80:80 \
-	-v ${PWD}/nginx.conf:/etc/nginx/conf.d/default.conf \q
+	-v ${PWD}/nginx.conf:/etc/nginx/conf.d/default.conf \
 	--name http-proxy \
 	benrowe/http-proxy-encrypt:latest
